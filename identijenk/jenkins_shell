@@ -1,5 +1,10 @@
+echo "Korrektur #1"
+echo " NO Tagging "
+echo " NO Pushing to Docker Hub "
+cd ./identidock #1.1
+
 #Default compose args
-COMPOSE_ARGS=" -f jenkins.yml -p jenkins "
+COMPOSE_ARGS=" -f ../identijenk/jenkins.yml -p jenkins " #1.2
 
 #Make sure old containers are gone
 sudo docker-compose $COMPOSE_ARGS stop
@@ -24,7 +29,7 @@ if [ $ERR -eq 0 ]; then
     sudo docker tag -f jenkins_identidock peter1938/identidock:newest
     echo "Pushing"
 ## !!! ##
-#% PW% ist manuell zu ändern
+#% PW% ist manuell zu Ã¤ndern
     sudo docker login -u peter1938-p %PW%
 ## !!! ##
     sudo docker push peter1938/identidock:$HASH
